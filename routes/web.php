@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); });
+Route::get('/login', function () { return view('login'); });
+Route::get('/studi', function () { return view('studi'); });
+Route::get('/matkul', function () { return view('matkul'); });
+Route::get('/mahasiswa', function () { return view('mahasiswa'); });

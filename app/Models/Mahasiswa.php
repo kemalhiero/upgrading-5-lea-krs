@@ -13,4 +13,9 @@ class Mahasiswa extends Model
     protected $primaryKey = 'nim';
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function studi()
+    {
+        return $this->belongsToMany(Studi::class, 'kelas', 'nim_mhs', 'id_studi');
+    }
 }

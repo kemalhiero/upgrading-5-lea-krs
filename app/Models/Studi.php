@@ -14,4 +14,9 @@ class Studi extends Model
     public function mata_kuliah(){
         return $this->belongsTo(MataKuliah::class);
     }
+
+    public function mahasiswa()
+    {
+        return $this->belongsToMany(Mahasiswa::class, 'kelas', 'id_studi', 'nim_mhs');
+    }
 }
