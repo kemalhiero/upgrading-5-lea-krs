@@ -19,17 +19,19 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($list_matkul as $m)
             <tr>
-                <th scope="row">1</th>
-                <td>JSI123</td>
-                <td>Dasar Pemrograman</td>
-                <td>3</td>
+                <th scope="row">{{$loop->iteration}}</th>
+                <td>{{$m->kode}}</td>
+                <td>{{$m->nama}}</td>
+                <td>{{$m->sks}}</td>
                 <td>
                     <a href="#" class="btn btn-primary">
                         <i class="bi bi-info-circle-fill"> Detail</i>
                     </a>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
     </main>

@@ -20,18 +20,20 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($mahasiswa as $m)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>20124314</td>
-                    <td>Ajo</td>
-                    <td>Laki-Laki</td>
-                    <td>Pariaman</td>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$m->nim}}</td>
+                    <td>{{$m->nama}}</td>
+                    <td>{{$m->jenis_kelamin}}</td>
+                    <td>{{$m->alamat}}</td>
                     <td>
-                        <a href="#" class="btn btn-primary">
-                            <i class="bi bi-info-circle-fill"> Detail</i>
+                        <a href="#" class="btn btn-warning">
+                            <i class="bi bi-pencil-square"> Edit</i>
                         </a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </main>

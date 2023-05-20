@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kode_matkul', 10);
             $table->string('dosen');
             $table->string('ruang', 10);
-            $table->string('jadwal', 15);
+            $table->string('jadwal', 30);
             $table->string('periode', 15);
             $table->timestamps();
 

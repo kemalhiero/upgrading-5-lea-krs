@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MataKuliah extends Model
+class Matkul extends Model
 {
     use HasFactory;
 
@@ -15,6 +15,6 @@ class MataKuliah extends Model
     protected $keyType = 'string';
 
     public function studi(){
-        return $this->hasMany(Studi::class);
+        return $this->hasMany(Studi::class, 'kode_matkul', 'kode');
     }
 }

@@ -10,9 +10,11 @@ class Studi extends Model
     use HasFactory;
 
     protected $table = 'studi';
+    protected $guarded = ['id'];
+    protected $fillable = ['kode_matkul', 'dosen', 'ruang', 'jadwal', 'periode'];
 
-    public function mata_kuliah(){
-        return $this->belongsTo(MataKuliah::class);
+    public function matkul(){
+        return $this->belongsTo(Matkul::class, 'kode_matkul', 'kode');
     }
 
     public function mahasiswa()
