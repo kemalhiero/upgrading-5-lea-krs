@@ -13,6 +13,7 @@ class Mahasiswa extends Model
     protected $primaryKey = 'nim';
     public $incrementing = false;
     protected $keyType = 'string';
+    protected $fillable = ['nim', 'nama', 'jenis_kelamin', 'alamat'];
 
     public function studi()
     {

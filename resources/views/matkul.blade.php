@@ -26,8 +26,8 @@
                 <td>{{$m->nama}}</td>
                 <td>{{$m->sks}}</td>
                 <td>
-                    <a href="#" class="btn btn-primary">
-                        <i class="bi bi-info-circle-fill"> Detail</i>
+                    <a href="#" class="btn btn-warning">
+                        <i class="bi bi-pencil-square"> Edit</i>
                     </a>
                 </td>
             </tr>

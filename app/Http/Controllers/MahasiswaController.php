@@ -22,16 +22,6 @@ class MahasiswaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -39,7 +29,15 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            'nim' => 'required',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        Mahasiswa::create($validasi);
+        return redirect()->back();
     }
 
     /**
@@ -82,8 +80,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Mahasiswa $mahasiswa)
     {
-        //
+        // Mahasiswa:where('nim', $nim)->delete();
+        $mahasiswa->delete();
+        return redirect()->back();
     }
 }

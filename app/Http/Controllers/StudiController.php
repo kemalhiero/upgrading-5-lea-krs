@@ -71,7 +71,7 @@ class StudiController extends Controller
     public function store_mhs(Request $request)
     {
         $validasi = $request->validate([
-            'id_studi' => 'required',
+            'id_studi' => 'required|unique:mahasiswa',
             'nim_mhs' => 'required',
         ]);
 
@@ -113,5 +113,11 @@ class StudiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function destroy_mhs($id, $nim)
+    {
+        Kelas::where('id_studi', $id)->where('nim_mhs', $nim)->delete();
+        return redirect()->back();
     }
 }
