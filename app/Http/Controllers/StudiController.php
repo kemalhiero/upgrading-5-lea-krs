@@ -53,16 +53,17 @@ class StudiController extends Controller
     public function show($id)
     {
         
-        $list_mhs_kelas = Kelas::where('id_studi', '=', $id);
+        // $list_mhs_kelas = Kelas::where('id_studi', '=', $id);        
         // $list_mhs_kelas = Studi::with('mahasiswa')->where('id_studi', '=', $id);
+        
+        $list_mhs_kelas = Mahasiswa::whereHas('studi', function (Builder $query) use ($id){
+            $query->where('studi.id', '=', $id);
+        })->get();
 
-        // $list_mhs_kelas = Studi::whereHas('mahasiswa', function (Builder $query) use ($id){
-        //     $query->where('id', '=', $id);
-        // })->get();
-        // $mahasiswa = Mahasiswa::all();
-        // $studi = Studi::find($id);
+        $mahasiswa = Mahasiswa::all();
+        $studi = Studi::find($id);
             
-        dd($list_mhs_kelas);
+        // dd($list_mhs_kelas);
 
         return view('studi.detail', compact('list_mhs_kelas', 'mahasiswa', 'studi'));
     }

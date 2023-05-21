@@ -53,8 +53,8 @@
                     <td>{{$m->jenis_kelamin}}</td>
                     <td>{{$m->alamat}}</td>
                     <td>
-                        <a href="#" class="btn btn-warning">
-                            <i class="bi bi-pencil-square"> Edit</i>
+                        <a href="#" class="btn btn-danger">
+                            <i class="bi bi-trash">Hapus</i>
                         </a>
                     </td>
                 </tr>
