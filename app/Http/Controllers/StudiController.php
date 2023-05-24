@@ -60,7 +60,10 @@ class StudiController extends Controller
             $query->where('studi.id', '=', $id);
         })->get();
 
-        $mahasiswa = Mahasiswa::all();
+        $mahasiswa = Mahasiswa::whereDoesntHave('studi', function ($query) use ($id) {
+            $query->where('studi.id', $id);
+        })->get();
+
         $studi = Studi::find($id);
             
         // dd($list_mhs_kelas);
@@ -71,7 +74,7 @@ class StudiController extends Controller
     public function store_mhs(Request $request)
     {
         $validasi = $request->validate([
-            'id_studi' => 'required|unique:mahasiswa',
+            'id_studi' => 'required',
             'nim_mhs' => 'required',
         ]);
 
